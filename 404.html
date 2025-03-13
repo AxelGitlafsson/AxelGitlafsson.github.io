@@ -61,6 +61,16 @@
             margin-top: 1.5rem;
             line-height: 1.4;
         }
+        .terminal-line {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 0.1s ease-in-out, height 0.2s ease-in-out;
+        }
+        .show-line {
+            opacity: 1;
+            height: 1.4em;
+        }
         .cursor {
             display: inline-block;
             width: 10px;
@@ -88,6 +98,10 @@
             0%, 49% { opacity: 1; }
             50%, 100% { opacity: 0; }
         }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
     </style>
 </head>
 <body>
@@ -97,12 +111,11 @@
         
         <div class="terminal">
             <div class="terminal-content">
-                <span>> ERROR: Page_Not_Found.exe has crashed</span><br>
-                <span>> Searching for alternative routes...</span><br>
-                <span>> Checking interdimensional portals...</span><br>
-                <span>> Running quantum path algorithm...</span><br>
-                <span>> CONCLUSION: This page exists only in a parallel universe</span>
-                <div class="cursor"></div>
+                <div class="terminal-line">> ERROR: Page_Not_Found.exe has crashed</div>
+                <div class="terminal-line">> Searching for alternative routes...</div>
+                <div class="terminal-line">> Checking interdimensional portals...</div>
+                <div class="terminal-line">> Running quantum path algorithm...</div>
+                <div class="terminal-line">> CONCLUSION: This page exists only in a parallel universe<span class="cursor"></span></div>
             </div>
         </div>
         
@@ -110,5 +123,43 @@
         
         <a href="/" class="btn">Return to Reality</a>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const lines = document.querySelectorAll('.terminal-line');
+            
+            function typeLine(lineIndex) {
+                if (lineIndex >= lines.length) return;
+                
+                const line = lines[lineIndex];
+                line.classList.add('show-line');
+                
+                const text = line.textContent;
+                line.textContent = '';
+                
+                let charIndex = 0;
+                const typeInterval = setInterval(() => {
+                    if (charIndex < text.length) {
+                        line.textContent += text.charAt(charIndex);
+                        charIndex++;
+                    } else {
+                        clearInterval(typeInterval);
+                        
+                        // Add cursor to last line if this is the final line
+                        if (lineIndex === lines.length - 1) {
+                            const cursor = document.createElement('span');
+                            cursor.className = 'cursor';
+                            line.appendChild(cursor);
+                        } else {
+                            // Start typing the next line only after this one is complete
+                            setTimeout(() => typeLine(lineIndex + 1), 300);
+                        }
+                    }
+                }, 30);
+            }
+            
+            // Start with the first line
+            typeLine(0);
+        });
+    </script>
 </body>
 </html>
