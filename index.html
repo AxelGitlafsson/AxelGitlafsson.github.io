@@ -7,6 +7,17 @@
     <meta name="keywords" content="Full Stack Developer, Cloud Solutions Architect, React, Node.js, AWS, Web Development, Software Engineer">
     <meta name="author" content="Alex Anderson">
     
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    
+    <!-- Resource Preloading -->
+    <link rel="preload" href="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d" as="image">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourwebsite.com" />
+    
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Alex Anderson - Full Stack Developer Portfolio">
     <meta property="og:description" content="Full Stack Developer & Cloud Solutions Architect specializing in React, Node.js, and AWS">
@@ -19,6 +30,22 @@
     
     <title>Alex Anderson - Full Stack Developer Portfolio</title>
     <style>
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #0077cc;
+            color: white;
+            padding: 8px;
+            z-index: 1001;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -141,8 +168,8 @@
             display: none;
         }
         .experience {
-            padding: 4rem 0;
             background-color: white;
+            padding: 4rem 0;
         }
         .experience-grid {
             display: grid;
@@ -216,13 +243,17 @@
         /* Skills Section Styles */
         .skills {
             background-color: #f8f9fa;
-            padding: 4rem 0;
+            padding: 2rem 0 2rem;
+            margin-top: 1rem;
+        }
+        .skills h2 {
+            margin-bottom: 3rem;
         }
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 0.5rem;
         }
         .skill-category {
             background: white;
@@ -242,8 +273,8 @@
         }
         /* Contact Section Styles */
         .contact {
-            padding: 2rem 0 4rem;
             background-color: white;
+            padding: 2rem 0 4rem;
         }
         .contact-content {
             max-width: 800px;
@@ -378,7 +409,7 @@
         section h2 {
             font-size: 2.5rem;
             color: #2c3e50;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
             position: relative;
         }
@@ -386,7 +417,7 @@
         section h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
             width: 60px;
@@ -394,11 +425,101 @@
             background-color: #0077cc;
             border-radius: 2px;
         }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #f5f5f5;
+            }
+            
+            .project-card, .skill-category, .experience-section, .contact-content {
+                background: #2c2c2c;
+                color: #f5f5f5;
+            }
+            
+            .nav {
+                background-color: rgba(26, 26, 26, 0.95);
+            }
+            
+            .tech-tag {
+                background-color: #1a1a1a;
+                color: #0077cc;
+            }
+            
+            .degree, .position, .project-title {
+                color: #f5f5f5;
+            }
+            
+            .description, .institution, .company {
+                color: #aaa;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav, .contact-links, .download-button {
+                display: none;
+            }
+            
+            body {
+                color: black;
+                background: white;
+            }
+            
+            .project-card, .skill-category, .experience-section {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: none;
+                padding: 0;
+            }
+        }
     </style>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "Alex Anderson",
+        "jobTitle": "Full Stack Developer",
+        "description": "Full Stack Developer & Cloud Solutions Architect specializing in React, Node.js, and AWS",
+        "url": "https://yourwebsite.com",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+        "sameAs": [
+            "https://github.com/alexanderson",
+            "https://linkedin.com/in/alexanderson"
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Bath"
+        },
+        "knowsAbout": [
+            "React",
+            "Node.js",
+            "AWS",
+            "Cloud Architecture",
+            "Full Stack Development",
+            "JavaScript",
+            "TypeScript"
+        ]
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="#top" class="nav-link">Alex Anderson</a>
             <div class="nav-links">
@@ -410,7 +531,7 @@
         </div>
     </nav>
 
-    <header id="top">
+    <header id="top" role="banner">
         <div class="container">
             <div class="header-main">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=250&fit=crop" alt="Alex Anderson" class="profile-image">
@@ -423,191 +544,194 @@
         </div>
     </header>
 
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="experience-grid">
-                <!-- Work Experience Section -->
-                <div class="experience-section">
-                    <h3>Work Experience</h3>
-                    <div class="work-item">
-                        <div class="date">Summer 2023</div>
-                        <div class="position">Software Development Intern</div>
-                        <div class="company">TechCorp Solutions</div>
-                        <p class="description">Contributed to the development of web applications and gained hands-on experience with modern development practices. Collaborated with senior developers on real-world projects.</p>
-                        <div class="tech-list">
+    <main id="main-content">
+        <section id="experience" class="experience" aria-labelledby="experience-heading">
+            <div class="container">
+                <div class="experience-grid">
+                    <!-- Work Experience Section -->
+                    <div class="experience-section">
+                        <h3>Work Experience</h3>
+                        <div class="work-item">
+                            <div class="date">Summer 2023</div>
+                            <div class="position">Software Development Intern</div>
+                            <div class="company">TechCorp Solutions</div>
+                            <p class="description">Contributed to the development of web applications and gained hands-on experience with modern development practices. Collaborated with senior developers on real-world projects.</p>
+                            <div class="tech-list">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education Section -->
+                    <div class="experience-section">
+                        <h3>Education</h3>
+                        <div class="education-item">
+                            <div class="date">2023 - 2024</div>
+                            <div class="degree">MSc Computer Science</div>
+                            <div class="institution">University of Bath</div>
+                            <p class="description">Pursuing advanced studies in Computer Science, focusing on software development, algorithms, and cloud computing.</p>
+                        </div>
+                        <div class="education-item">
+                            <div class="date">2020 - 2023</div>
+                            <div class="degree">BSc Psychology</div>
+                            <div class="institution">University of Exeter</div>
+                            <p class="description">Developed strong analytical and research skills while studying human behavior and cognitive processes. Combined quantitative and qualitative research methods.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">My Projects</h2>
+            <div class="projects">
+                <!-- Project 1 -->
+                <a href="project1.html" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop" alt="Web Analytics Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Web Analytics Dashboard</h3>
+                        <p>A real-time analytics dashboard for monitoring website traffic, user behavior, and performance metrics. Features interactive charts and customizable reports.</p>
+                        <div class="project-tech">
                             <span class="tech-tag">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="project2.html" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=500&fit=crop" alt="AI Task Manager">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI Task Manager</h3>
+                        <p>An intelligent task management system that uses machine learning to prioritize tasks, suggest deadlines, and optimize workflow based on user patterns.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">FastAPI</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="project3.html" class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop" alt="Cloud Storage Solution">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cloud Storage Solution</h3>
+                        <p>A secure cloud storage platform with end-to-end encryption, file sharing capabilities, and automated backup features for personal and business use.</p>
+                        <div class="project-tech">
                             <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills" aria-labelledby="skills-heading">
+            <div class="container">
+                <h2 id="skills-heading">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skill-tags">
+                            <span class="tech-tag">React</span>
                             <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Next.js</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <div class="skill-tags">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">RESTful APIs</span>
+                            <span class="tech-tag">GraphQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Cloud & DevOps</h3>
+                        <div class="skill-tags">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">CI/CD</span>
                             <span class="tech-tag">Git</span>
                         </div>
                     </div>
-                </div>
-
-                <!-- Education Section -->
-                <div class="experience-section">
-                    <h3>Education</h3>
-                    <div class="education-item">
-                        <div class="date">2023 - 2024</div>
-                        <div class="degree">MSc Computer Science</div>
-                        <div class="institution">University of Bath</div>
-                        <p class="description">Pursuing advanced studies in Computer Science, focusing on software development, algorithms, and cloud computing.</p>
-                    </div>
-                    <div class="education-item">
-                        <div class="date">2020 - 2023</div>
-                        <div class="degree">BSc Psychology</div>
-                        <div class="institution">University of Exeter</div>
-                        <p class="description">Developed strong analytical and research skills while studying human behavior and cognitive processes. Combined quantitative and qualitative research methods.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="container">
-        <h2>My Projects</h2>
-        <div class="projects">
-            <!-- Project 1 -->
-            <a href="/project1" class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop" alt="Coding Project 1">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Web Analytics Dashboard</h3>
-                    <p>A real-time analytics dashboard for monitoring website traffic, user behavior, and performance metrics. Features interactive charts and customizable reports.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">D3.js</span>
-                        <span class="tech-tag">Firebase</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Project 2 -->
-            <a href="/project2" class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=500&fit=crop" alt="Coding Project 2">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">AI Task Manager</h3>
-                    <p>An intelligent task management system that uses machine learning to prioritize tasks, suggest deadlines, and optimize workflow based on user patterns.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">FastAPI</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Project 3 -->
-            <a href="/project3" class="project-card">
-                <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=500&fit=crop" alt="Coding Project 3">
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">Cloud Storage Solution</h3>
-                    <p>A secure cloud storage platform with end-to-end encryption, file sharing capabilities, and automated backup features for personal and business use.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">MongoDB</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Frontend Development</h3>
-                    <div class="skill-tags">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">Redux</span>
-                        <span class="tech-tag">Next.js</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend Development</h3>
-                    <div class="skill-tags">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Express</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">RESTful APIs</span>
-                        <span class="tech-tag">GraphQL</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Cloud & DevOps</h3>
-                    <div class="skill-tags">
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Kubernetes</span>
-                        <span class="tech-tag">CI/CD</span>
-                        <span class="tech-tag">Git</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Redis</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="#0077cc">
-                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                            <a href="mailto:alex.anderson@example.com">alex.anderson@example.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="#0077cc">
-                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                            </svg>
-                            <a href="https://linkedin.com/in/alexanderson" target="_blank">Alex Anderson</a>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="#0077cc">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            <a href="https://github.com/alexanderson" target="_blank">@alexanderson</a>
+                    <div class="skill-category">
+                        <h3>Databases</h3>
+                        <div class="skill-tags">
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Redis</span>
                         </div>
                     </div>
                 </div>
-                <div class="resume-download">
-                    <a href="/path-to-your-resume.pdf" class="download-button" download>
-                        <svg class="contact-icon" viewBox="0 0 24 24" fill="white">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                        </svg>
-                        Download Resume (PDF)
-                    </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <h2 id="contact-heading">Get in Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="#0077cc">
+                                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                <a href="mailto:alex.anderson@example.com">alex.anderson@example.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="#0077cc">
+                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                                </svg>
+                                <a href="https://linkedin.com/in/alexanderson" target="_blank">Alex Anderson</a>
+                            </div>
+                            <div class="contact-item">
+                                <svg class="contact-icon" viewBox="0 0 24 24" fill="#0077cc">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                                <a href="https://github.com/alexanderson" target="_blank">@alexanderson</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume-download">
+                        <a href="/path-to-your-resume.pdf" class="download-button" download>
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="white">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Download Resume (PDF)
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>© 2025 Alex Anderson. All rights reserved.</p>
             <div class="contact-links">
@@ -623,6 +747,54 @@
         let lastScrollTop = 0;
         const nav = document.querySelector('.nav');
         
+        // Lazy load images
+        const lazyLoadImages = () => {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize lazy loading
+            lazyLoadImages();
+            
+            // Handle resume download
+            const resumeButton = document.querySelector('.download-button');
+            if (resumeButton) {
+                resumeButton.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    try {
+                        const response = await fetch(resumeButton.href);
+                        if (!response.ok) throw new Error('Download failed');
+                        
+                        const blob = await response.blob();
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'alex-anderson-resume.pdf';
+                        document.body.appendChild(a);
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                        document.body.removeChild(a);
+                    } catch (error) {
+                        alert('Sorry, the resume download failed. Please try again later.');
+                    }
+                });
+            }
+        });
+
+        // Scroll event handling
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
@@ -645,7 +817,7 @@
             lastScrollTop = scrollTop;
         });
         
-        // Add intersection observer for section animations
+        // Section animations
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -659,7 +831,7 @@
             observer.observe(section);
         });
 
-        // Handle smooth scrolling and nav hiding for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
