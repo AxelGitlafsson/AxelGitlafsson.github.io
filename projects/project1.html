@@ -209,73 +209,114 @@
     <header class="project-header" role="banner">
         <div class="container">
             <a href="../index.html" class="back-link">← Back to Portfolio</a>
-            <h1>Web Analytics Dashboard</h1>
-            <p class="subtitle">A real-time analytics platform for monitoring website performance</p>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; margin-top: 1rem;">
+                <div>
+                    <h1>Sudoku Solving Algorithm</h1>
+                    <p class="subtitle">Constraint Propagation with Backtracking DFS</p>
+                </div>
+            </div>
         </div>
     </header>
 
     <main id="project-content" role="main">
         <div class="container">
             <div class="project-content">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop" 
-                     alt="Web Analytics Dashboard Interface showing real-time visitor statistics and interactive charts" 
-                     class="project-image"
+                <img src="../images/sudoku.jpg" 
+                     alt="Sudoku puzzle book with pencil" 
+                     style="width: 100%; max-width: 600px; height: auto; object-fit: cover; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.2); margin-bottom: 2rem;"
                      loading="lazy">
-                
-                <div class="project-links">
-                    <a href="https://demo-analytics.example.com" class="demo-button" target="_blank" rel="noopener noreferrer">
-                        View Live Demo
-                    </a>
-                    <a href="https://github.com/alexanderson/analytics-dashboard" class="github-button" target="_blank" rel="noopener noreferrer">
-                        View Source Code
-                    </a>
-                </div>
 
                 <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">D3.js</span>
-                    <span class="tech-tag">Firebase</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Algorithms</span>
+                    <span class="tech-tag">Constraint Satisfaction</span>
+                    <span class="tech-tag">DFS</span>
                 </div>
 
-                <h2>Project Overview</h2>
-                <p>The Web Analytics Dashboard is a comprehensive solution for monitoring website traffic, user behavior, and performance metrics in real-time. Built with modern web technologies, it provides interactive visualizations and customizable reports to help businesses make data-driven decisions.</p>
+                <h2>Abstract</h2>
+                <p>This project implements an efficient Sudoku solver using depth-first search with backtracking alongside various constraint propagation techniques. The algorithm successfully solves even difficult puzzles in milliseconds by leveraging sudoku-specific heuristics to prune the search space.</p>
 
-                <h2>Key Features</h2>
+                <h2>Introduction</h2>
+                <h3>The Problem</h3>
+                <p>Sudoku is a logic-based number placement puzzle consisting of a 9×9 grid divided into nine 3×3 subgrids. The puzzle begins with some cells pre-filled with numbers. To solve the puzzle, each row, column, and 3×3 subgrid must contain all digits from 1 to 9 without repetition.</p>
+
+                <h3>Objective</h3>
+                <p>The goal was to develop a Python-based Sudoku solver capable of handling puzzles ranging from very easy to hard, with a focus on efficiency and optimization.</p>
+
+                <h2>Algorithm Description</h2>
+                <p>I implemented constraint propagation through a backtracking Depth-First Search (DFS) algorithm. To reduce the branching factor, my algorithm uses the minimum-remaining values (MRV) heuristic by prioritizing sudoku cells with the fewest possible options.</p>
+
+                <figure style="margin: 2rem 0;">
+                    <img src="../images/sudoku examples.png" 
+                         alt="Examples of Sudoku solving techniques: Naked Single, Hidden Single, and Naked Triple" 
+                         style="max-width: 100%; height: auto; border-radius: 8px;"
+                         loading="lazy">
+                    <figcaption style="text-align: center; margin-top: 1rem; color: #666;">
+                        Examples of constraint propagation techniques used in the solver
+                    </figcaption>
+                </figure>
+
+                <h3>Core Algorithm</h3>
                 <ul>
-                    <li>Real-time visitor tracking and analytics</li>
-                    <li>Interactive data visualizations using D3.js</li>
-                    <li>Customizable dashboard layouts</li>
-                    <li>Automated report generation</li>
-                    <li>User behavior flow analysis</li>
-                    <li>Performance monitoring and alerts</li>
+                    <li>Depth-first search with backtracking</li>
+                    <li>Forward checking to detect invalid states early</li>
                 </ul>
 
-                <h2>Technical Details</h2>
-                <p>This project leverages React for the frontend interface, with D3.js powering the interactive visualizations. Firebase provides real-time data synchronization and user authentication, while a Node.js/Express backend handles data processing and API integrations.</p>
+                <h3>Constraint Propagation Techniques</h3>
+                <ul>
+                    <li>Arc-consistency algorithm to reduce variable domains before search</li>
+                    <li>Naked singles (when a cell has only one possible value)</li>
+                    <li>Hidden singles (when only one cell in a unit can contain a specific value)</li>
+                    <li>Naked sets (pairs, triples, quads)</li>
+                </ul>
 
-                <h2>Development Process</h2>
-                <p>The dashboard was developed using an iterative approach, with continuous feedback from users guiding the feature development. Special attention was paid to performance optimization and responsive design to ensure a smooth experience across all devices.</p>
+                <h3>Selection Heuristics</h3>
+                <ul>
+                    <li>Minimum Remaining Values (MRV) to choose which cell to fill next</li>
+                    <li>Randomized selection among equal candidates to avoid getting stuck</li>
+                </ul>
 
-                <div class="image-gallery">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" 
-                         alt="Dashboard overview showing key metrics" 
-                         class="gallery-image" 
-                         loading="lazy">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" 
-                         alt="Interactive data visualization charts" 
-                         class="gallery-image" 
-                         loading="lazy">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" 
-                         alt="User behavior flow analysis interface" 
-                         class="gallery-image" 
-                         loading="lazy">
-                </div>
+                <h2>Implementation Details</h2>
+                <p>The algorithm's strength lies in its extensive use of constraint propagation before and during the search process. By significantly reducing the domain of variables before initiating DFS, the search space becomes much more manageable.</p>
+                <p>I was inspired by Deep Blue's chess-specific knowledge and attempted to incorporate as many sudoku-specific constraints as possible. Unfortunately, time constraints prevented implementing more advanced techniques like the Phistomefel Ring, which remains a goal for future work.</p>
+
+                <h2>Results and Performance</h2>
+                <p>My algorithm currently solves:</p>
+                <ul>
+                    <li>Hard puzzles in approximately 200-300ms on average</li>
+                    <li>What previously took minutes now completes in tenths of a second</li>
+                </ul>
+                <p>The biggest performance improvement came from the arc-consistency implementation of iteratively checking for naked singles, which made solving hard puzzles feasible. The MRV heuristic also decreased solution time by reducing the branching factor of the search tree.</p>
+
+                <h2>Optimizations and Complexity</h2>
+                <p>The time complexity of the DFS algorithm is O(b^m), where b is the branching factor and m is the maximum depth. Through various optimizations and heuristics, I was able to:</p>
+                <ul>
+                    <li>Significantly reduce the branching factor using MRV</li>
+                    <li>Decrease the number of nodes in the search tree with sudoku-specific constraints</li>
+                    <li>Detect invalid states early with forward checking</li>
+                </ul>
+                <p>In terms of programming, the code was not fully optimized due to my inexperience. Future improvements could include using NumPy to vectorize array operations, which could potentially reduce execution time further.</p>
+
+                <h2>Reflections and Future Work</h2>
+                <p>While my solver doesn't match the ~20ms performance of some professional solvers, the improvement from minutes to hundreds of milliseconds represents significant progress. The experience demonstrated the power of combining general search algorithms with domain-specific knowledge.</p>
+                <p>For future enhancements, I plan to:</p>
+                <ul>
+                    <li>Experiment with the "Dancing Links" algorithm for more efficient constraint satisfaction</li>
+                    <li>Implement additional interesting sudoku-specific techniques like "x-wing" and the Phistomefel Ring</li>
+                    <li>Optimize code execution with NumPy vectorization</li>
+                    <li>Explore more advanced search algorithms and heuristics</li>
+                </ul>
+
+                <h2>References</h2>
+                <ul>
+                    <li>Hoduku (2008). HoDoKu: Solving Techniques - Singles (Hidden Single, Naked Single, Full House). hodoku.sourceforge.net</li>
+                    <li>Mastering Sudoku (2024). Phistomefel Ring Explained & How To Solve Sudokus With It. masteringsudoku.com</li>
+                    <li>SudokuWiki.org (2005). Naked Candidates. sudokuwiki.org</li>
+                </ul>
 
                 <nav class="project-nav-links" aria-label="Project navigation">
-                    <a href="project3.html" class="nav-link prev">← Loading...</a>
-                    <a href="project2.html" class="nav-link next">Loading...</a>
+                    <a href="project3.html" class="nav-link prev">← Cloud Storage Solution</a>
+                    <a href="project2.html" class="nav-link next">AI Task Manager →</a>
                 </nav>
             </div>
         </div>
