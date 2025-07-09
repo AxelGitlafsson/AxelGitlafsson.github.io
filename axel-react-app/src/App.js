@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import NavBar from './components/NavBar';
+import Header from './components/Header';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SudokuProject from './pages/SudokuProject';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              {/* Skip Link for Accessibility */}
+              <a href="#main-content" className="skip-link">Skip to main content</a>
+
+              <NavBar />
+              <Header />
+              <main id="main-content">
+                <Experience />
+                <Projects />
+                <Skills />
+                <Contact />
+              </main>
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/projects/sudoku" element={<SudokuProject />} />
+      </Routes>
+    </Router>
   );
 }
 
