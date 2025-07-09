@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Analytics Dashboard - Alex Anderson</title>
+    <title>Sudoku Solving Algorithm - Axel Olafsson</title>
     <style>
         /* Skip Link for Accessibility */
         .skip-link {
@@ -212,7 +212,7 @@
             <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; margin-top: 1rem;">
                 <div>
                     <h1>Sudoku Solving Algorithm</h1>
-                    <p class="subtitle">Constraint Propagation with Backtracking DFS</p>
+                    <p class="subtitle">This project implements an efficient Sudoku solver using depth-first search with backtracking alongside various constraint propagation techniques. The algorithm successfully solves hard puzzles in milliseconds by using many sudoku-specific heuristics to prune the search space.</p>
                 </div>
             </div>
         </div>
@@ -233,9 +233,6 @@
                     <span class="tech-tag">DFS</span>
                 </div>
 
-                <h2>Abstract</h2>
-                <p>This project implements an efficient Sudoku solver using depth-first search with backtracking alongside various constraint propagation techniques. The algorithm successfully solves even difficult puzzles in milliseconds by leveraging sudoku-specific heuristics to prune the search space.</p>
-
                 <h2>Introduction</h2>
                 <h3>The Problem</h3>
                 <p>Sudoku is a logic-based number placement puzzle consisting of a 9×9 grid divided into nine 3×3 subgrids. The puzzle begins with some cells pre-filled with numbers. To solve the puzzle, each row, column, and 3×3 subgrid must contain all digits from 1 to 9 without repetition.</p>
@@ -244,7 +241,7 @@
                 <p>The goal was to develop a Python-based Sudoku solver capable of handling puzzles ranging from very easy to hard, with a focus on efficiency and optimization.</p>
 
                 <h2>Algorithm Description</h2>
-                <p>I implemented constraint propagation through a backtracking Depth-First Search (DFS) algorithm. To reduce the branching factor, my algorithm uses the minimum-remaining values (MRV) heuristic by prioritizing sudoku cells with the fewest possible options.</p>
+                <p>I implemented constraint propagation through a backtracking Depth-First Search (DFS) algorithm. To reduce the branching factor, the algorithm uses the minimum-remaining values (MRV) heuristic by prioritizing sudoku cells with the fewest possible options.</p>
 
                 <figure style="margin: 2rem 0;">
                     <img src="../images/sudoku examples.png" 
@@ -281,7 +278,7 @@
                 <p>I was inspired by Deep Blue's chess-specific knowledge and attempted to incorporate as many sudoku-specific constraints as possible. Unfortunately, time constraints prevented implementing more advanced techniques like the Phistomefel Ring, which remains a goal for future work.</p>
 
                 <h2>Results and Performance</h2>
-                <p>My algorithm currently solves:</p>
+                <p>The algorithm currently solves:</p>
                 <ul>
                     <li>Hard puzzles in approximately 200-300ms on average</li>
                     <li>What previously took minutes now completes in tenths of a second</li>
