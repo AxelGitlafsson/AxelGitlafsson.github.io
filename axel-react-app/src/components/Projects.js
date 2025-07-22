@@ -22,39 +22,22 @@ const Projects = () => (
         </div>
       </Link>
       {/* Project 2 */}
-      <a href="projects/project2.html" className="project-card">
+      <Link to="/projects/hothand" className="project-card">
         <div className="project-image">
-          <img src="https://images.unsplash.com/photo-1661961111184-11317b40adb2?w=1200&h=600&fit=crop" alt="AI Task Manager interface showing task prioritization and AI suggestions" />
+          <img src="/images/onfire.png" alt="Basketball player shooting - Hot Hand Dissertation" />
         </div>
         <div className="project-content">
-          <h3 className="project-title">AI Task Manager</h3>
-          <p>An intelligent task management system that uses machine learning to optimize workflow, prioritize tasks, and provide personalized productivity insights.</p>
+          <h3 className="project-title">Hot Hand Dissertation</h3>
+          <p>Investigates the Hot Hand phenomenon in NBA basketball using logistic regression, Random Forest, and XGBoost models on both live games and 3-point contest data. Finds significant evidence of a hot hand effect after a single made shot, with nuanced results for longer streaks.</p>
           <div className="project-tech">
             <span className="tech-tag">Python</span>
-            <span className="tech-tag">TensorFlow</span>
-            <span className="tech-tag">FastAPI</span>
-            <span className="tech-tag">React</span>
-            <span className="tech-tag">PostgreSQL</span>
+            <span className="tech-tag">Machine Learning</span>
+            <span className="tech-tag">Statistics</span>
+            <span className="tech-tag">Data Visualization</span>
+            <span className="tech-tag">Sports Analytics</span>
           </div>
         </div>
-      </a>
-      {/* Project 3 */}
-      <a href="projects/project3.html" className="project-card">
-        <div className="project-image">
-          <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=1200&h=600&fit=crop" alt="Cloud Storage Solution dashboard showing file management and storage analytics" />
-        </div>
-        <div className="project-content">
-          <h3 className="project-title">Cloud Storage Solution</h3>
-          <p>A secure and scalable cloud storage platform with end-to-end encryption, automated backups, and seamless file sharing for personal and business use.</p>
-          <div className="project-tech">
-            <span className="tech-tag">Node.js</span>
-            <span className="tech-tag">AWS</span>
-            <span className="tech-tag">MongoDB</span>
-            <span className="tech-tag">React</span>
-            <span className="tech-tag">Docker</span>
-          </div>
-        </div>
-      </a>
+      </Link>
     </div>
   </section>
 );

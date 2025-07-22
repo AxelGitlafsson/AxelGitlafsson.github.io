@@ -5,7 +5,7 @@ const Footer = () => (
     <div className="container">
       <p>© 2025 Axel Olafsson. All rights reserved.</p>
       <div className="contact-links">
-        <a href="mailto:axel.u.olafsson@gmail.com">Email</a>
+        <a href="mailto:axelolafsson.work@gmail.com">Email</a>
         <a href="https://github.com/axelgitlafsson" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/axel-u-olafsson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>

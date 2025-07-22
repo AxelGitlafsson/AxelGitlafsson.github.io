@@ -6,45 +6,42 @@ const Skills = () => (
       <h2 id="skills-heading">Skills & Expertise</h2>
       <div className="skills-grid">
         <div className="skill-category">
-          <h3>Frontend Development</h3>
+          <h3>Data Science</h3>
           <div className="skill-tags">
-            <span className="tech-tag">React</span>
-            <span className="tech-tag">JavaScript</span>
-            <span className="tech-tag">TypeScript</span>
-            <span className="tech-tag">HTML5</span>
-            <span className="tech-tag">CSS3</span>
-            <span className="tech-tag">Redux</span>
-            <span className="tech-tag">Next.js</span>
+            <span className="tech-tag">Statistical Analysis</span>
+            <span className="tech-tag">Data Cleaning</span>
+            <span className="tech-tag">Hypothesis Testing</span>
+            <span className="tech-tag">Experiment Design</span>
+            <span className="tech-tag">Machine Learning</span>
           </div>
         </div>
         <div className="skill-category">
-          <h3>Backend Development</h3>
+          <h3>Programming Languages</h3>
           <div className="skill-tags">
-            <span className="tech-tag">Node.js</span>
-            <span className="tech-tag">Express</span>
             <span className="tech-tag">Python</span>
-            <span className="tech-tag">Django</span>
-            <span className="tech-tag">RESTful APIs</span>
-            <span className="tech-tag">GraphQL</span>
+            <span className="tech-tag">R</span>
+            <span className="tech-tag">SQL</span>
           </div>
         </div>
         <div className="skill-category">
-          <h3>Cloud & DevOps</h3>
+          <h3>Data Visualization</h3>
           <div className="skill-tags">
-            <span className="tech-tag">AWS</span>
-            <span className="tech-tag">Docker</span>
-            <span className="tech-tag">Kubernetes</span>
-            <span className="tech-tag">CI/CD</span>
+            <span className="tech-tag">Matplotlib</span>
+            <span className="tech-tag">Seaborn</span>
+            <span className="tech-tag">Plotly</span>
+            <span className="tech-tag">Tableau</span>
+            <span className="tech-tag">Power BI</span>
+          </div>
+        </div>
+        <div className="skill-category">
+          <h3>Tools & Libraries</h3>
+          <div className="skill-tags">
+            <span className="tech-tag">Pandas</span>
+            <span className="tech-tag">NumPy</span>
+            <span className="tech-tag">scikit-learn</span>
+            <span className="tech-tag">PyTorch</span>
+            <span className="tech-tag">Jupyter</span>
             <span className="tech-tag">Git</span>
-          </div>
-        </div>
-        <div className="skill-category">
-          <h3>Databases</h3>
-          <div className="skill-tags">
-            <span className="tech-tag">MongoDB</span>
-            <span className="tech-tag">PostgreSQL</span>
-            <span className="tech-tag">MySQL</span>
-            <span className="tech-tag">Redis</span>
           </div>
         </div>
       </div>
