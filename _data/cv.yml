@@ -2,13 +2,13 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Billy bob
     - name: Date of Birth
-      value: 14th March 1879
+      value: 14th March 1879000
     - name: Languages
       value: English, German
 
-- title: Education
+- title: Educationtestest
   type: time_table
   contents:
     - title: PhD
@@ -35,7 +35,7 @@
       institution: Institute for Advanced Study, Princeton University
       year: 1933 - 1955
       description:
-        - Description 1.
+        - Description 10000000000000000000000.
         - Description 2.
         - title: Description 3.
           contents:
