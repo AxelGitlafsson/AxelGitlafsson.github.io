@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "Some things I&#39;ve done.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -28,14 +28,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather.html";
-            },},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+            },},{id: "projects-the-hot-hand-theory-in-nba-basketball-dissertation",
+          title: 'The Hot Hand Theory in NBA Basketball (Dissertation)',
+          description: "An investigation into the numbers behind streak shooting in live NBA games and 3-point shooting contests.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project.html";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
+            },},{id: "projects-sudoku-solving-algorithm",
+          title: 'Sudoku Solving Algorithm',
+          description: "DFS with backtracking and various constraint propagation techniques.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project.html";
             },},{id: "projects-project-3-with-very-long-name",
