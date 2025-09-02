@@ -201,7 +201,6 @@
     "icon": "fa-solid fa-tag",
     "keywords": [
       "BBC Gréngewald Hueschtert (Luxembourg 2nd Division)",
-      "Bath University 2nd Team",
       "Exeter University 1st Team"
     ]
   },
@@ -211,7 +210,6 @@
     "keywords": [
       "Video games",
       "Board games",
-      "Cooking",
       "Music"
     ]
   }
@@ -220,7 +218,7 @@
     {
       "name": "Professors / Employers",
       "icon": "fa-solid fa-laptop",
-      "reference": "Contact me for a glowing recommendation and reference from my university professors or previous employers."
+      "reference": "Contact me for a glowing recommendation/reference from my university professors or a previous employer."
     }
   ]
 }

@@ -1,8 +1,8 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: The Hot Hand Theory in NBA Basketball (Dissertation)
+description:  An investigation into the numbers behind streak shooting in live NBA games and 3-point shooting contests.
+img: assets/img/1.png
 importance: 1
 category: work
 related_publications: false

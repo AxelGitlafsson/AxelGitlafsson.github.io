@@ -1,81 +1,94 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
-importance: 2
-category: work
+title: Sudoku Solving Algorithm
+description: DFS with backtracking and various constraint propagation techniques.
+img: assets/img/sudoku.jpg
+importance: 1
+category: fun
 giscus_comments: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+<h2>Introduction</h2>
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+<h4>The Problem</h4>
+<p>Sudoku is a logic-based number placement puzzle consisting of a 9×9 grid divided into nine 3×3 subgrids. The puzzle begins with some cells pre-filled with numbers. To solve the puzzle, each row, column, and 3×3 subgrid must contain all digits from 1 to 9 without repetition.</p>
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+<h4>Objective</h4>
+<p>The goal was to develop a Python-based Sudoku solver capable of handling puzzles ranging from very easy to hard, with a focus on efficiency and optimization.</p>
+
+<h2>Algorithm Description</h2>
+<p>I implemented constraint propagation through a backtracking Depth-First Search (DFS) algorithm. To reduce the branching factor, the algorithm uses the minimum-remaining values (MRV) heuristic by prioritizing sudoku cells with the fewest possible options.</p>
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/sudoku examples.png" title="Constraint propagation techniques visualization" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
+    Examples of constraint propagation techniques used in the solver
 </div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+<h4>Core Algorithm</h4>
+<ul>
+    <li>Depth-first search with backtracking</li>
+    <li>Forward checking to detect invalid states early</li>
+</ul>
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+<h4>Constraint Propagation Techniques</h4>
+<ul>
+    <li>Arc-consistency algorithm to reduce variable domains before search</li>
+    <li>Naked singles (when a cell has only one possible value)</li>
+    <li>Hidden singles (when only one cell in a unit can contain a specific value)</li>
+    <li>Naked sets (pairs, triples, quads)</li>
+</ul>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+<h4>Selection Heuristics</h4>
+<ul>
+    <li>Minimum Remaining Values (MRV) to choose which cell to fill next</li>
+    <li>Randomized selection among equal candidates to avoid getting stuck</li>
+</ul>
 
-{% raw %}
+<h2>Implementation Details</h2>
+<p>The algorithm's strength lies in its extensive use of constraint propagation before and during the search process. By significantly reducing the domain of variables before initiating DFS, the search space becomes much more manageable.</p>
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+<p>I was inspired by Deep Blue's chess-specific knowledge and attempted to incorporate as many sudoku-specific constraints as possible. Unfortunately, time constraints prevented implementing more advanced techniques like the Phistomefel Ring, which remains a goal for future work.</p>
 
-{% endraw %}
+<h2>Results and Performance</h2>
+<p>The algorithm currently solves:</p>
+<ul>
+    <li><strong>Hard puzzles</strong> in approximately 200-300ms on average</li>
+    <li>What previously took <strong>minutes</strong> now completes in <strong>tenths of a second</strong></li>
+</ul>
+
+<p>The biggest performance improvement came from the arc-consistency implementation of iteratively checking for naked singles, which made solving hard puzzles feasible. The MRV heuristic also decreased solution time by reducing the branching factor of the search tree.</p>
+
+<h2>Optimizations and Complexity</h2>
+<p>The time complexity of the DFS algorithm is O(b^m), where b is the branching factor and m is the maximum depth. Through various optimizations and heuristics, I was able to:</p>
+
+<ul>
+    <li>Significantly reduce the branching factor using MRV</li>
+    <li>Decrease the number of nodes in the search tree with sudoku-specific constraints</li>
+    <li>Detect invalid states early with forward checking</li>
+</ul>
+
+<p>In terms of programming, the code was not fully optimized due to my inexperience. Future improvements could include using NumPy to vectorize array operations, which could potentially reduce execution time further.</p>
+
+<h2>Reflections and Future Work</h2>
+<p>While my solver doesn't match the ~20ms performance of some professional solvers, the improvement from minutes to hundreds of milliseconds represents significant progress. The experience demonstrated the power of combining general search algorithms with domain-specific knowledge.</p>
+
+<p>For future enhancements, I plan to:</p>
+<ul>
+    <li>Experiment with the "Dancing Links" algorithm for more efficient constraint satisfaction</li>
+    <li>Implement additional interesting sudoku-specific techniques like "x-wing" and the Phistomefel Ring</li>
+    <li>Optimize code execution with NumPy vectorization</li>
+    <li>Explore more advanced search algorithms and heuristics</li>
+</ul>
+
+<hr>
+
+<p><strong>References</strong></p>
+<ul>
+    <li>Hoduku (2008). HoDoKu: Solving Techniques - Singles (Hidden Single, Naked Single, Full House). hodoku.sourceforge.net</li>
+    <li>Mastering Sudoku (2024). Phistomefel Ring Explained & How To Solve Sudokus With It. masteringsudoku.com</li>
+    <li>SudokuWiki.org (2005). Naked Candidates. sudokuwiki.org</li>
+</ul>
