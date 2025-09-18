@@ -29,11 +29,23 @@
   },
   "work": [
     {
+      "name": "Iceland Ocean Cluster",
+      "position": "Blue Economy AI Research Intern",
+      "url": "https://sjavarklasinn.is/en/",
+      "startDate": "2025-9",
+      "endDate": "",
+      "summary": "Startup Accelerator connecting the global blue economy to drive innovation.",
+      "highlights": [
+        "Produce a structured, evidence-based map of current and emerging applications of artificial intelligence (AI) across blue-economy sectors.",
+        "Identify global trends, gaps, and actionable recommendations with specific relevance for Iceland and the Nordics."
+      ]
+    },
+    {
       "name": "BlazeSQL",
       "position": "Junior Data Scientist",
       "url": "https://blazesql.com",
-      "startDate": "2024-11-01",
-      "endDate": "2025-03-01",
+      "startDate": "2024-11",
+      "endDate": "2025-03",
       "summary": "AI-powered Natural Language to SQL Data Analysis Software. Conducted error analyses, built dashboards, and automated SQL syntax error categorization using local LLMs.",
       "highlights": [
         "Processed 2,000+ error instances across multiple database types, reducing query error rates.",
