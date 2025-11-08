@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /cv2.html
-title: "CV"
+permalink: /cv2/
+title: cv
 cv_pdf: CVRetail.pdf  # Add this line - points to your PDF in assets/pdf/
 ---
 <div class="row">
