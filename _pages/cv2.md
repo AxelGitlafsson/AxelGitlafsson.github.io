@@ -4,6 +4,7 @@ permalink: /cv2/
 title: cv
 cv_pdf: CVRetail.pdf  # Add this line - points to your PDF in assets/pdf/
 ---
+My CV
 <div class="row">
     <div class="col-sm-12">
         <div class="embed-responsive" style="padding-bottom: 800px; height: auto;">
